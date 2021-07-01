@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::livewire('/', 'book.index')->name('book.index');
+Route::livewire('/create', 'book.create')->name('book.create');
+Route::livewire('/edit/{id}', 'book.edit')->name('book.edit');
