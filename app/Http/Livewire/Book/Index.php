@@ -15,4 +15,14 @@ class Index extends Component
             'books' => Book::orderBy('serial_number', 'ASC')->paginate(10) // mengatur pagination
         ]);
     }
+
+    public function destroy($id) {
+		$book = Book::find($id);
+		if($book) {
+			$book->delete();
+		}
+
+		session()->flash('message', 'Data Buku Berhasil Dihapus');
+		return redirect()->route('book.index');
+	}
 }
